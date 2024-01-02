@@ -1,5 +1,11 @@
-const Cars = () => {
-  return <div>Cars</div>;
+import Cars from '../components/home/Cars';
+
+const CarsGrid = () => {
+  return (
+    <div>
+      <Cars />
+    </div>
+  );
 };
 
-export default Cars;
+export default CarsGrid;

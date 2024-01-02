@@ -1,10 +1,20 @@
+import Cars from '../components/home/Cars';
+import Hero from '../components/home/Hero';
+import Process from '../components/home/Process';
+import RequireCar from '../components/home/RequireCar';
+import Services from '../components/home/Services';
+import Testimonial from '../components/home/Testimonial';
+
 const Home = () => {
   return (
-    <div>
-      <div className="container px-4 mx-auto my-6 md:my-20">
-        <h2>Hello</h2>
-      </div>
-    </div>
+    <>
+      <Hero />
+      <RequireCar />
+      <Process />
+      <Cars />
+      <Services />
+      <Testimonial />
+    </>
   );
 };
 

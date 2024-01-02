@@ -5,6 +5,8 @@ import Home from '../pages/Home';
 import AboutUs from '../pages/AboutUs';
 import Cars from '../pages/Cars';
 import Contact from '../pages/Contact';
+import SingleCar from '../pages/SingleCar';
+import CarListing from '../pages/CarListing';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: '/cars',
         element: <Cars />,
+      },
+      {
+        path: '/car-listing/:name',
+        element: <CarListing />,
+      },
+      {
+        path: '/single-car/:name',
+        element: <SingleCar />,
       },
 
       {

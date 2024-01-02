@@ -35,7 +35,7 @@ const Navbar = () => {
   ];
 
   return (
-    <>
+    <div className="relative overflow-hidden z-10">
       {/* topbar */}
       <div className="bg-secondary text-white py-2">
         <div className="container mx-auto px-4">
@@ -53,14 +53,14 @@ const Navbar = () => {
       </div>
 
       {/* navbar */}
-      <div className="bg-white shadow-light py-3">
+      <div className="bg-white !text-secondary shadow-light py-3">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center gap-x-4">
             <Link to="/">
               <img src={logo} alt="logo" className="max-w-[50px] h-auto" />
             </Link>
             <div
-              className="block md:hidden group cursor-pointer  w-11 h-6 relative"
+              className="block md:hidden group cursor-pointer w-11 h-6 relative"
               onClick={() => setHamActive((prev) => !prev)}
             >
               <div className="w-11 h-0.5 bg-black block group-hover:-translate-x-3 duration-500 " />
@@ -71,6 +71,36 @@ const Navbar = () => {
               {navData.map((item, i) => {
                 return (
                   <li key={i}>
+                    <Link
+                      to={item.link}
+                      className={`font-semibold uppercase tracking-wider pt-4 pb-3.5 px-5 flex justify-center items-center rounded-md hover:bg-primary hover:text-white duration-500 ${
+                        activeNav === item.link && 'bg-primary text-white'
+                      }`}
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <div
+            className={`absolute top-36 w-full h-screen bg-white shadow-light p-4 flex justify-center items-center duration-500 ${
+              hamActive ? 'right-0' : '-right-[150%]'
+            }`}
+          >
+            <div
+              className="absolute top-7 right-7 w-11 h-12 group cursor-pointer z-[1000]"
+              onClick={() => setHamActive(false)}
+            >
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-0.5 bg-black block rotate-45 duration-500" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-rotate-[30deg] w-8 h-0.5 bg-black block -rotate-45 duration-500" />
+            </div>
+            <ul className="flex flex-col justify-center items-center gap-y-4">
+              {navData.map((item, i) => {
+                return (
+                  <li key={i} onClick={() => setHamActive(false)}>
                     <Link
                       to={item.link}
                       className={`font-semibold uppercase tracking-wider py-4 px-5 flex justify-center items-center rounded-md hover:bg-primary hover:text-white duration-500 ${
@@ -84,11 +114,9 @@ const Navbar = () => {
               })}
             </ul>
           </div>
-
-          <div className=""></div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -35,7 +35,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden z-10">
+    <div className="relative z-10">
       {/* topbar */}
       <div className="bg-secondary text-white py-2">
         <div className="container mx-auto px-4">
@@ -86,7 +86,7 @@ const Navbar = () => {
           </div>
 
           <div
-            className={`absolute top-36 w-full h-screen bg-white shadow-light p-4 flex justify-center items-center duration-500 ${
+            className={`absolute top-36 w-full h-screen bg-white shadow-light p-4 justify-center items-start pt-32 duration-500 ${
               hamActive ? 'right-0' : '-right-[150%]'
             }`}
           >
